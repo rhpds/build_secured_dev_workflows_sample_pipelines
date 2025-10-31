@@ -293,6 +293,6 @@ spec:
     - name: workspace
     - name: maven-settings
     - name: gitops-auth
-      soptional: true
+      optional: true
     - name: git-auth
       optional: true
