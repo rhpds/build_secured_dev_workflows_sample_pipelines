@@ -89,7 +89,7 @@ spec:
     - name: certificate-identity
       type: string
       default: userX@demo.redhat.com
-    - name: oidc-issuer
+    - name: certificate-oidc-issuer
       type: string
       default: https://sso.<domain>/realms/trusted-artifact-signer
     - name: rekor-url
@@ -145,8 +145,8 @@ spec:
       params:
       - name: certificate-identity
         value: $(params.certificate-identity)
-      - name: oidc-issuer
-        value: $(params.oidc-issuer)
+      - name: certificate-oidc-issuer
+        value: $(params.certificate-oidc-issuer)
       - name: rekor-url
         value: $(params.rekor-url)
       - name: tuf-mirror

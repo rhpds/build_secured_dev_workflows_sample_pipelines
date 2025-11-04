@@ -38,10 +38,10 @@ spec:
     name: POLICY_CONFIGURATION
     type: string
   - default: ""
-    description: Public key used to verify signatures. Must be a valid k8s cosign
-      reference, e.g. k8s://my-space/my-secret where my-secret contains the expected
-      cosign.pub attribute.
-    name: PUBLIC_KEY
+    name: CERTIFICATE_OIDC_ISSUER
+    type: string
+  - default: ""
+    name: CERTIFICATE_IDENTITY
     type: string
   - default: ""
     description: Rekor host for transparency log lookups
@@ -168,8 +168,10 @@ spec:
     - /tekton/home/snapshot.json
     - --policy
     - $(params.POLICY_CONFIGURATION)
-    - --public-key
-    - $(params.PUBLIC_KEY)
+    - --certificate-oidc-issuer
+    - $(params.CERTIFICATE_OIDC_ISSUER)
+    - --certificate-identity
+    - $(params.CERTIFICATE_IDENTITY)
     - --rekor-url
     - $(params.REKOR_HOST)
     - --ignore-rekor=$(params.IGNORE_REKOR)

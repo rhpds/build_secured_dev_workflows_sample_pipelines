@@ -31,9 +31,9 @@ spec:
     description: Should EC violations cause the pipeline to fail?
     name: ec-strict
     type: string
-  - default: k8s://$(context.pipelineRun.namespace)/cosign-pub
-    description: The public key that EC should use to verify signatures
-    name: ec-public-key
+  - name: certificate-oidc-issuer
+    type: string
+  - name: certificate-identity
     type: string
   - default: http://rekor-server.tssc-tas.svc
     description: The Rekor host that EC should use to look up transparency logs
@@ -85,8 +85,10 @@ spec:
       value: $(params.ec-strict)
     - name: POLICY_CONFIGURATION
       value: $(params.ec-policy-configuration)
-    - name: PUBLIC_KEY
-      value: $(params.ec-public-key)
+    - name: CERTIFICATE_OIDC_ISSUER
+      value: $(params.certificate-oidc-issuer)
+    - name: CERTIFICATE_IDENTITY
+      value: $(params.certificate-identity)
     - name: REKOR_HOST
       value: $(params.ec-rekor-host)
     - name: TUF_MIRROR

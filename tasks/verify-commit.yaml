@@ -13,7 +13,7 @@ spec:
     type: string
     default: userX@domain.com
   - description: OIDC issuer
-    name: oidc-issuer
+    name: certificate-oidc-issuer
     type: string
     default: https://sso.<domain>/realms/trusted-artifact-signer
   - description: Rekor URL
@@ -41,7 +41,7 @@ spec:
       git config --global --add safe.directory /workspace/repository/source
       cosign initialize --mirror=$(params.tuf-mirror) --root=$(params.tuf-mirror)/root.json
       git show -s
-      gitsign verify --certificate-identity=$(params.certificate-identity) --certificate-oidc-issuer=$(params.oidc-issuer) HEAD \
+      gitsign verify --certificate-identity=$(params.certificate-identity) --certificate-oidc-issuer=$(params.certificate-oidc-issuer) HEAD \
       || (echo "Unable to verify commit signature!" && exit 1)
     workingDir: /workspace/repository/source
   workspaces:
