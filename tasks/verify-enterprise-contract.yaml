@@ -179,7 +179,7 @@ spec:
     - $(params.WORKERS)
     - --info=$(params.INFO)
     - --timeout=100h
-    - --strict=false
+    - --strict=true
     - --show-successes
     - --effective-time=$(params.EFFECTIVE_TIME)
     - --extra-rule-data=$(params.EXTRA_RULE_DATA)
