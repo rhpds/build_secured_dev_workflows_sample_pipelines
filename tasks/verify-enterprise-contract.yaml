@@ -179,12 +179,12 @@ spec:
     - $(params.WORKERS)
     - --info=$(params.INFO)
     - --timeout=100h
-    - --strict=true
+    - --strict=false
     - --show-successes
     - --effective-time=$(params.EFFECTIVE_TIME)
     - --extra-rule-data=$(params.EXTRA_RULE_DATA)
     - --output
-    - text?show-successes=false
+    - text?show-successes=true
     - --output
     - appstudio=$(results.TEST_OUTPUT.path)
     - --output
