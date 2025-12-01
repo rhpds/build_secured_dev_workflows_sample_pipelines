@@ -96,7 +96,7 @@ spec:
       volumeMounts:
         - mountPath: /maven-generate
           name: maven-settings-dir
-      image: 'registry.redhat.io/ubi9/openjdk-17@sha256:5d619e202695acf76a5f32c07ace6709f5ee5d3999bf977e1bf95ad34197f44a'
+      image: 'registry.access.redhat.com/ubi8/openjdk-21:1.18'
       workingDir: $(workspaces.source.path)/$(params.SUBDIRECTORY)
       args:
         - '-s'
